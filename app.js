@@ -8,6 +8,7 @@ const hpp = require('hpp');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -25,6 +26,20 @@ app.enable('trust proxy');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 ///////////////////////////////GLOBAL MIDDLEWARES///////////////////////////////
+// Implementing CORS
+app.use(cors()); // allow requests for everyone to our API
+// Access-Control-Allow-Origin *
+
+// back-end: api.natours.com, front-end: natours.com
+// app.use(
+//   cors({
+//     // origin: 'https://www.nators.com', // if we want to allow acess (creating requests) from this domain 'https://www.nators.com' to our API
+//   })
+// );
+
+app.options('*', cors()); // pre-fly stage for some not-simple requests(POST, PAYCH, DELETE). Enable for all endpoints.
+// app.options('/api/v1/tours/:id', cors()); // pre-fly stage for some not-simple requests(POST, PAYCH, DELETE). Enable only for /api/v1/tours/:id endpoint.
+
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
