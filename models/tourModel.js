@@ -152,10 +152,10 @@ tourSchema.pre(/^find/, function (next) {
 
 /// QUERY MIDDLEWARE: runs after all find-started() queries are executed
 /// and it has access to all documents returned by query
-tourSchema.post(/^find/, function (docs, next) {
-  console.log(`Query took ${Date.now() - this.start}millisec`);
-  next();
-});
+// tourSchema.post(/^find/, function (docs, next) {
+//   console.log(`Query took ${Date.now() - this.start}millisec`);
+//   next();
+// });
 
 // /// AGGREGATION MIDDLEWARE: runs before aggregation pipelines
 // tourSchema.pre('aggregate', function (next) {

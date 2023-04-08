@@ -9,14 +9,14 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: 'http://127.0.0.1:8000/api/v1/users/login',
+      url: '/api/v1/users/login',
       data: {
         email: email,
         password: password,
       },
     });
 
-    console.log(res);
+    // console.log(res);
 
     if (res.data.status === 'success') {
       showAlert('success', 'Logged in successfully!');
@@ -26,7 +26,7 @@ export const login = async (email, password) => {
       }, 1500);
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     showAlert('error', error.response.data.message);
     // alert(error.response.data.message);
   }
@@ -36,13 +36,13 @@ export const logout = async () => {
   try {
     // const res = await axios({
     //   method: 'GET',
-    //   url: 'http://127.0.0.1:8000/api/v1/users/logout',
+    //   url: '/api/v1/users/logout',
     // });
     // if (res.data.status === 'success') {
     //   location.reload(true);
     // }
 
-    const res = await fetch('http://127.0.0.1:8000/api/v1/users/logout', {
+    const res = await fetch('/api/v1/users/logout', {
       method: 'GET',
     });
 
@@ -50,7 +50,7 @@ export const logout = async () => {
       location.reload(true);
     }
 
-    console.log(res);
+    // console.log(res);
   } catch (error) {
     // console.log(error);
     showAlert('error', 'Error loggin out! Try again!');
