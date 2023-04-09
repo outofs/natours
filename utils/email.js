@@ -12,8 +12,15 @@ module.exports = class Email {
 
   newTransport() {
     if (process.env.NODE_ENV === 'production') {
-      // Sendgrid
-      return 1;
+      console.log('We are in production mode!');
+      // console.log(await this.testAccount().pass);
+      return nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.GMAIL_EMAIL,
+          pass: process.env.GMAIL_PASS,
+        },
+      });
     }
 
     return nodemailer.createTransport({

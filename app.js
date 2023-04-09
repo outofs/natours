@@ -18,6 +18,7 @@ const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+const bookingController = require('./controllers/bookingController');
 
 const app = express();
 
@@ -81,6 +82,12 @@ const limiter = rateLimit({
 });
 app.use('/api', limiter); // limiter is available for all requests which starts with /api
 
+// app.post(
+//   '/webhook-checkout',
+//   express.raw({ type: 'application/json' }),
+//   bookingController.webhookCheckout
+// );
+
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
@@ -116,13 +123,6 @@ app.use((req, res, next) => {
 });
 
 ///////////////////////////////ROUTES///////////////////////////////
-app.get('/', (req, res) => {
-  res.status(200).render('base', {
-    tour: 'Forest Hiker',
-    user: 'Sanya',
-  });
-});
-
 app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
@@ -130,7 +130,6 @@ app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/bookings', bookingRouter);
 
 /// this middleware will runs if neither of routes above were reached
-
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
