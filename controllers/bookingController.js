@@ -30,7 +30,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, nexts) => {
             images: [
               `${req.protocol}://${req.get('host')}/img/tours/${
                 tour.imageCover
-              }.jpg`,
+              }`, ///https://natours-node-j9u7.onrender.com/img/tours/tour-9-cover.jpg
             ],
           },
           unit_amount: tour.price * 100,
