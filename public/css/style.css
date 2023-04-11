@@ -32,7 +32,6 @@ body {
   font-weight: 300;
   font-family: 'Lato', sans-serif;
   color: #777;
-  padding: 3rem;
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -45,7 +44,7 @@ body {
 
 .main {
   background-color: #f7f7f7;
-  padding: 8rem 6rem;
+  padding: 6rem 4rem;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -63,7 +62,7 @@ body {
 }
 
 .container {
-  max-width: 120rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -85,6 +84,10 @@ body {
   height: 1px;
   background-color: #e0e0e0;
 }
+
+/* ///////////////////////////////ALERT/////////////////////////////// */
+/* ///////////////////////////////ALERT/////////////////////////////// */
+/* ///////////////////////////////ALERT/////////////////////////////// */
 
 .alert {
   position: fixed;
@@ -298,6 +301,10 @@ body {
   outline-offset: 3px;
 }
 
+/* ///////////////////////////////HEADER/////////////////////////////// */
+/* ///////////////////////////////HEADER/////////////////////////////// */
+/* ///////////////////////////////HEADER/////////////////////////////// */
+
 .header {
   background-color: #444;
   padding: 0 5rem;
@@ -314,24 +321,9 @@ body {
   -ms-flex-align: center;
   align-items: center;
 }
-@media only screen and (max-width: 62.5em) {
-  .header {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-}
+
 .header__logo img {
   height: 3.5rem;
-}
-@media only screen and (max-width: 62.5em) {
-  .header__logo {
-    -webkit-box-ordinal-group: 0;
-    -ms-flex-order: -1;
-    order: -1;
-    margin-bottom: 1.5rem;
-  }
 }
 
 .section-header {
@@ -1074,7 +1066,7 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 7rem;
+  grid-gap: 4rem;
 }
 
 .card {
@@ -1321,4 +1313,195 @@ body {
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
+}
+
+/* MEDIA */
+@media only screen and (max-width: 1024px) {
+  .heading-primary {
+    font-size: 3rem;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-description > * {
+    padding: 10vw 6vw;
+  }
+
+  .section-map {
+    height: 50rem;
+  }
+
+  .reviews {
+    padding: 0;
+  }
+
+  .section-cta {
+    padding-bottom: 0;
+  }
+
+  .user-view__menu {
+    flex: 25rem 0 0;
+  }
+
+  .side-nav a:link {
+    padding: 2rem 2rem;
+  }
+
+  .side-nav svg {
+    margin-right: 0;
+  }
+
+  .user-view__form-container {
+    padding: 0 6rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    padding: 0 2rem;
+  }
+  .nav--user {
+    display: flex;
+    flex-direction: row;
+  }
+  .nav__el:not(:last-child) {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+
+  .heading-primary {
+    font-size: 2rem;
+  }
+
+  .heading-tertirary {
+    font-size: 2.3rem;
+    text-align: center;
+    bottom: 30%;
+    width: 100%;
+    right: auto;
+  }
+  .card__details {
+    grid-row-gap: 1.25rem;
+    grid-column-gap: 1rem;
+    padding: 1.5rem 2rem;
+  }
+  .card__footer {
+    padding: 1.5rem 2rem;
+    font-size: 1.4rem;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    margin-top: auto;
+  }
+
+  .reviews__card {
+    padding: 2rem;
+  }
+
+  .cta {
+    padding: 5rem 5rem 5rem 20rem;
+  }
+
+  .cta__text {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+
+  .user-view__menu {
+    flex: 15rem 0 0;
+  }
+
+  .side-nav a:link {
+    padding: 1rem 1rem;
+  }
+
+  .side-nav svg {
+    margin-right: 0;
+  }
+
+  .user-view__form-container {
+    padding: 0 4rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .nav__el span {
+    display: none;
+  }
+  .card-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .section-header {
+    height: 60vw;
+  }
+
+  .heading-box__detail {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .section-description {
+    flex-direction: column;
+  }
+  .heading-secondary {
+    text-align: center;
+  }
+
+  .cta__content h2,
+  .cta__content p {
+    display: none;
+  }
+
+  .main {
+    padding: 0;
+  }
+
+  .user-view {
+    flex-direction: column;
+  }
+
+  .user-view__menu {
+    padding: 0;
+  }
+
+  .login-form {
+    padding: 3rem 5rem;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .header {
+    padding: 0 0.5rem;
+  }
+
+  .nav--tours .nav__el,
+  .nav__el,
+  .nav--user .nav__el {
+    font-size: 1.1rem;
+  }
+
+  .heading-box__group {
+    margin-top: 0.5rem;
+  }
+
+  .reviews__card {
+    width: 25rem;
+  }
+
+  .cta__img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  .footer__nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer__nav li {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
 }
