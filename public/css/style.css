@@ -1254,6 +1254,19 @@ body {
   color: #bbb;
 }
 
+.forgot__pass {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #777;
+}
+
+.form__group--flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .form__group:not(:last-child) {
   margin-bottom: 2.5rem;
 }
@@ -1503,5 +1516,14 @@ body {
   .footer__nav li {
     text-align: center;
     margin-bottom: 1.5rem;
+  }
+
+  .form__group--flex {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .forgot__pass {
+    margin-top: 2rem;
   }
 }

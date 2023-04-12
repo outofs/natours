@@ -14,6 +14,10 @@ router.route('/').get(viewController.getOverview);
 
 router.route('/tour/:slug').get(viewController.getTour);
 router.route('/login').get(viewController.getLoginForm);
+router.route('/sign-up').get(viewController.getSignUpForm);
+
+router.route('/forgot-password').get(viewController.getForgotPassForm);
+router.route('/reset-password').get(viewController.getResetPassForm);
 
 router.route('/me').get(authController.protect, viewController.getAccount);
 router

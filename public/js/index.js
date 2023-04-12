@@ -1,6 +1,9 @@
 /* eslint-disable */
 import { updateSettings } from './updateSettings.js';
 import { login, logout } from './login.js';
+import { signUp } from './signUp.js';
+import { forgotPassword } from './forgotPassword.js';
+import { resetPassword } from './resetPassword.js';
 import { displayMap } from './leaflet.js';
 import { bookTour } from './stripe.js';
 import { showAlert } from './alerts.js';
@@ -8,6 +11,9 @@ import { showAlert } from './alerts.js';
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
+const signUpForm = document.querySelector('.form--signup');
+const forgotPassForm = document.querySelector('.form--forgot');
+const resetPassForm = document.querySelector('.form--reset');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
@@ -31,6 +37,41 @@ if (loginForm) {
     const password = document.getElementById('password').value;
 
     login(email, password);
+  });
+}
+
+if (forgotPassForm) {
+  forgotPassForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+
+    forgotPassword(email);
+  });
+}
+
+if (resetPassForm) {
+  resetPassForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const token = document.getElementById('token').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('password__confirm').value;
+
+    resetPassword(token, password, passwordConfirm);
+  });
+}
+
+if (signUpForm) {
+  signUpForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const passwordConfirm = document.getElementById('password__confirm').value;
+
+    signUp(name, email, password, passwordConfirm);
   });
 }
 

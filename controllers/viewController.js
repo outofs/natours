@@ -46,7 +46,7 @@ exports.getTour = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getLoginForm = catchAsync(async (req, res, next) => {
+exports.getLoginForm = (req, res, next) => {
   res
     .status(200)
     .set(
@@ -56,7 +56,43 @@ exports.getLoginForm = catchAsync(async (req, res, next) => {
     .render('login', {
       title: 'Log in',
     });
-});
+};
+
+exports.getSignUpForm = (req, res, next) => {
+  res
+    .status(200)
+    .set(
+      'Content-Security-Policy',
+      "connect-src 'self' https://cdnjs.cloudflare.com"
+    )
+    .render('signUp', {
+      title: 'Sign up',
+    });
+};
+
+exports.getForgotPassForm = (req, res, next) => {
+  res
+    .status(200)
+    .set(
+      'Content-Security-Policy',
+      "connect-src 'self' https://cdnjs.cloudflare.com"
+    )
+    .render('forgotPassword', {
+      title: 'Forgot password',
+    });
+};
+
+exports.getResetPassForm = (req, res, next) => {
+  res
+    .status(200)
+    .set(
+      'Content-Security-Policy',
+      "connect-src 'self' https://cdnjs.cloudflare.com"
+    )
+    .render('resetPassword', {
+      title: 'Reset Password',
+    });
+};
 
 exports.getAccount = async (req, res) => {
   res
